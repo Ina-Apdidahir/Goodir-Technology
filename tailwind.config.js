@@ -25,7 +25,8 @@ export default {
       colors: {
         'primary': "#ECEEFF",
         "whit-color" : '#f4f5fe',
-        "coral-red": "#ea4343",
+        "tertiary-Color" : '#FF5C01',
+        "coral-red": "#850d33",
         "slate-gray": "#7D7789",
         "second-grey": "#3C3C3C",
         // "pale-blue": "#F5F6FF",
