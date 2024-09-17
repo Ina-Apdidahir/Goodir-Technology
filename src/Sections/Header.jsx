@@ -7,9 +7,6 @@ import close from '../assets/PORT_images/close.svg';
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
 
-  // const handleMenuClick = () => setShowNav(true);
-  // const handleCloseClick = () => setShowNav(false);
-
   return (
     <header className="px-3 py-2 sm:py-4 bg-coral-red  z-10 w-full fixed">
       <nav className="flex justify-between items-center max-container ">
