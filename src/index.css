@@ -1,0 +1,138 @@
+
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap"); */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+    font-family: "Josefin Sans", sans-serif;
+}
+#root{
+  overflow: hidden;
+}
+body{
+  background-color: #f4f5fe;
+  /* background: #f345454e; */
+  /* overflow: hidden; */
+}
+@layer components {
+  .max-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .input {
+    @apply sm:flex-1 max-sm:w-full text-base leading-normal text-slate-gray pl-5 max-sm:p-5 outline-none sm:border-none border max-sm:border-slate-gray max-sm:rounded-full;
+  }
+}
+
+@layer utilities {
+  .padding {
+    @apply sm:px-16 px-8 sm:py-24 py-12;
+  }
+  .custom-stroke {
+    -webkit-text-stroke: 1px white;
+    text-stroke: 1px white; /* For non-webkit browsers */
+    color: transparent; /* Ensures the text itself is transparent */
+  }
+  .padding-x {
+    @apply sm:px-16 px-8;
+  }
+
+  .padding-y {
+    @apply sm:py-24 py-12;
+  }
+
+  .padding-l {
+    @apply sm:pl-16 pl-8;
+  }
+
+  .padding-r {
+    @apply sm:pr-16 pr-8;
+  }
+
+  .padding-t {
+    @apply sm:pt-24 pt-12;
+  }
+
+  .padding-b {
+    @apply sm:pb-24 pb-12;
+  }
+
+  .info-text {
+    @apply font-montserrat text-slate-gray text-lg leading-7;
+  }
+
+  .transition-container {
+    position: relative;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    overflow: hidden; /* Hide overflow for corner effects */
+  }
+  
+  .transition-container::before, 
+  .transition-container::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff6347; /* Color of the corner elements */
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  
+  /* Top-left corner */
+  .transition-container::before {
+    top: 0;
+    left: 0;
+    border-top-left-radius: 10px;
+  }
+  
+  /* Bottom-right corner */
+  .transition-container::after {
+    bottom: 0;
+    right: 0;
+    border-bottom-right-radius: 10px;
+  }
+  
+  /* Hover effect: Expands the corners */
+  .transition-container:hover::before {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .transition-container:hover::after {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .cd-words-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .cd-words-wrapper b {
+    position: absolute;
+    top: -14px;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .cd-words-wrapper b.is-visible {
+    opacity: 1;
+  }
+  
+  .cd-words-wrapper b.is-hidden {
+    opacity: 0;
+  }
+  
+}
