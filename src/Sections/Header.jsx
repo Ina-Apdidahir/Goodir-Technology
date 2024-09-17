@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <header className="px-3 py-2 sm:py-4 bg-coral-red  z-10 w-full fixed">
-      <nav className="flex justify-between items-center max-container bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]">
+      <nav className="flex justify-between items-center max-container ">
         <a href="" className="flex items-center space-x-2 h-full ">
           <img className="w-24 lg:w-36" src={Logo} alt="Logo" />
         </a>

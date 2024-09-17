@@ -7,7 +7,7 @@ const Hero = () => {
 
   return (
     <div className=" w-full max-container  px-2 ">
-      <div className=" w-full max-container  min-h-[100vh]  flex justify-center flex-col lg:items-center bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]">
+      <div className=" w-full max-container  min-h-[100vh]  flex justify-center flex-col ">
 
         <div className="flex space-x-4 justify-center mb-10 space-y-0 lg:flex-col lg:absolute left-[-5rem] top-[35%] lg:space-x-0 lg:space-y-4">
           <svg
