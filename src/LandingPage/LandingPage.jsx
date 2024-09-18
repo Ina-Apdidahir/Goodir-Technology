@@ -51,8 +51,13 @@ const LandingPage = () => {
                     className=" padding ">
                     < Services />
                 </section>
-                <section className=" padding ">
+                <section className=" padding bg-coral-red ">
                     <Resume />
+                </section>
+                <section
+                id='Team'
+                 className=" padding ">
+                    <Team />
                 </section>
                 <section
                     id="Testimonial"
@@ -70,9 +75,6 @@ const LandingPage = () => {
                             </div>
                         </div>
                     </div>
-                </section>
-                <section className=" padding ">
-                    <Team />
                 </section>
                 <section
                     id="Blog"

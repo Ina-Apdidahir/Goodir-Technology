@@ -1,7 +1,9 @@
 
-import { useState, useEffect, useRef } from "react";
 
-const TeamSlider = ({ teamMembers }) => {
+import { useState, useEffect, useRef } from "react";
+import { Link } from 'react-router-dom';
+
+const PostSlider = ({ posts }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
   const touchStartX = useRef(0);
@@ -18,7 +20,7 @@ const TeamSlider = ({ teamMembers }) => {
 
   const handleNextSlide = () => {
     const totalVisibleSlides = getTotalVisibleSlides();
-    const totalSlides = Math.ceil(teamMembers.length / totalVisibleSlides);
+    const totalSlides = Math.ceil(posts.length / totalVisibleSlides);
     const nextSlide = (currentSlide + 1) % totalSlides;
     setCurrentSlide(nextSlide);
     if (sliderRef.current) {
@@ -32,7 +34,7 @@ const TeamSlider = ({ teamMembers }) => {
 
   const handlePrevSlide = () => {
     const totalVisibleSlides = getTotalVisibleSlides();
-    const totalSlides = Math.ceil(teamMembers.length / totalVisibleSlides);
+    const totalSlides = Math.ceil(posts.length / totalVisibleSlides);
     const prevSlide = (currentSlide - 1 + totalSlides) % totalSlides;
     setCurrentSlide(prevSlide);
     if (sliderRef.current) {
@@ -97,29 +99,43 @@ const TeamSlider = ({ teamMembers }) => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        {teamMembers.map((member, index) => (
+        {posts.map((post, index) => (
           <div
             key={index}
-            className={`flex-shrink-0 w-[95%] sm:w-[45%] lg:w-[30%] 
-                 ${index === teamMembers.length - 1 ? 'mr-10' : ''}`} // Add margin to the last item
+            // className="w-full sm:w-[48%] lg:w-[30%] flex-shrink-0 mb-16 flex justify-between flex-col group"
+            className={`flex-shrink-0 w-[95%] sm:w-[45%] lg:w-[30%] mb-16 flex justify-between flex-col group
+                 ${index === posts.length - 1 ? 'mr-10' : ''}`} // Add margin to the last item
           >
-            <div className="rounded-sm overflow-hidden pb-4">
-              <img className="w-full" src={member.image} alt={member.name} />
-              <div className="flex mt-3 flex-col justify-center items-center">
-                <h3 className="font-semibold text-[15px] sm:text-[18px]">
-                  {member.name}
-                </h3>
-                <p className="text-[13px] text-gray-600 text-center">
-                  {member.role}
-                </p>
-              </div>
+            <div className="">
+            <div className="w-full overflow-hidden rounded-sm h-[200px] sm:h-[180px] lg:h-[240px]">
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-full object-cover group-hover:scale-[1.05] transition-all duration-[1000ms]"
+              />
+            </div>
+              <div className="w-full flex-col justify-start space-y-2 my-3 lg:my-0">
+              <p className="text-red-500">{post.category}</p>
+              <h2 className="text-2xl font-bold group-hover:underline">
+                <Link to={`/post/${post.id}`}>{post.title}</Link>
+              </h2>
+              <p className="text-gray-500">{post.date}</p>
+            </div>
+            <div className="mt-2 lg:w-auto">
+              <Link
+                to={`/post/${post.id}`}
+                className="text-coral-red px-5 py-2 border-2 border-coral-red bg-transparent hover:bg-coral-red hover:text-white rounded-sm"
+              >
+                Full Story
+              </Link>
+            </div>
             </div>
           </div>
         ))}
       </div>
       {/* Dot Indicators */}
       <div className="flex justify-center mt-4 space-x-2">
-        {Array.from({ length: Math.ceil(teamMembers.length / getTotalVisibleSlides()) }).map((_, index) => (
+        {Array.from({ length: Math.ceil(posts.length / getTotalVisibleSlides()) }).map((_, index) => (
           <button
             key={index}
             className={`h-2 lg:h-3 rounded-full transition-all duration-300 ease-in-out ${
@@ -133,4 +149,4 @@ const TeamSlider = ({ teamMembers }) => {
   );
 };
 
-export default TeamSlider;
+export default PostSlider;

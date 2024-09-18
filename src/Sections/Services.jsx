@@ -58,7 +58,7 @@ const Services = () => {
             Starts from <span className='text-red-700'>$59.99</span>
           </p>
           <small>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic temporibus aspernatur blanditiis nam ex consequuntur voluptas exercitationem vel quas reprehenderit officiis in ea, minima amet. Ratione distinctio vitae blanditiis magni!
+            We craft unique branding and design solutions that elevate your brand's identity. Our team focuses on creating visual elements that capture your company's essence, ensuring a strong and consistent presence across all platforms. From logos to comprehensive branding materials, we develop designs that resonate with your target audience, making a lasting impression and setting you apart from the competition.
           </small>
         </div>
       </div>
@@ -75,7 +75,7 @@ const Services = () => {
             Starts from <span className='text-red-700'>$99.99</span>
           </p>
           <small>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic temporibus aspernatur blanditiis nam ex consequuntur voluptas exercitationem vel quas reprehenderit officiis in ea, minima amet. Ratione distinctio vitae blanditiis magni!
+            Our digital marketing strategies are designed to amplify your online presence and engage your audience effectively. We utilize the latest tools and techniques, including SEO, social media marketing, and email campaigns, to drive traffic and boost conversions. By analyzing market trends and consumer behavior, we tailor our approach to maximize your brand's reach and impact, ensuring measurable and sustainable growth.
           </small>
         </div>
       </div>
@@ -92,7 +92,7 @@ const Services = () => {
             Starts from <span className='text-red-700'>$299.99</span>
           </p>
           <small>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic temporibus aspernatur blanditiis nam ex consequuntur voluptas exercitationem vel quas reprehenderit officiis in ea, minima amet. Ratione distinctio vitae blanditiis magni!
+            Our web development services focus on building dynamic, responsive websites that offer an exceptional user experience. We prioritize clean design and seamless navigation to ensure visitors can easily access the information they need. By utilizing modern frameworks and coding practices, we create websites that are not only visually appealing but also optimized for performance, security, and scalability.
           </small>
         </div>
       </div>
@@ -109,7 +109,7 @@ const Services = () => {
             Starts from <span className='text-red-700'>$499.99</span>
           </p>
           <small>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic temporibus aspernatur blanditiis nam ex consequuntur voluptas exercitationem vel quas reprehenderit officiis in ea, minima amet. Ratione distinctio vitae blanditiis magni!
+            In system development, we engineer custom solutions tailored to streamline your business processes. Our team designs and implements systems that automate tasks, enhance data management, and improve overall efficiency. From inventory management to CRM systems, we ensure that each solution is robust, scalable, and fully integrated with your existing infrastructure, providing a seamless operational experience.
           </small>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Ecommerce from '../assets/PORT_images/Ecommerce.jpg'
 import Landing from '../assets/PORT_images/Landing.jpg'
+import PostSlider from '../Details/BlogSlider';
 
 const Blog = () => {
 
@@ -42,40 +43,7 @@ const Blog = () => {
         </small>
       </div>
 
-
-
-      <div className="py-4 w-full flex overflow-x-auto space-x-4">
-        {posts.map((post) => (
-          <div
-            key={post.id}
-            className="w-full sm:w-[48%] lg:w-[30%] flex-shrink-0 mb-16 flex justify-between flex-col group"
-          >
-            <div className="w-full overflow-hidden rounded-sm h-[200px] sm:h-[180px] lg:h-[240px]">
-              <img
-                src={post.image}
-                alt={post.title}
-                className="w-full h-full object-cover group-hover:scale-[1.05] transition-all duration-[1000ms]"
-              />
-            </div>
-            <div className="w-full flex-col justify-start space-y-2 my-3 lg:my-0">
-              <p className="text-red-500">{post.category}</p>
-              <h2 className="text-2xl font-bold group-hover:underline">
-                <Link to={`/post/${post.id}`}>{post.title}</Link>
-              </h2>
-              <p className="text-gray-500">{post.date}</p>
-            </div>
-            <div className="mt-2 lg:w-auto">
-              <Link
-                to={`/post/${post.id}`}
-                className="text-coral-red px-5 py-2 border-2 border-coral-red bg-transparent hover:bg-coral-red hover:text-white rounded-sm"
-              >
-                Full Story
-              </Link>
-            </div>
-          </div>
-        ))}
-      </div>
-
+      <PostSlider posts={posts} />
 
     </div >
   )
@@ -83,31 +51,3 @@ const Blog = () => {
 
 export default Blog
 
-
-
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-
-// const PostList = () => {
-//     const posts = [
-//         { id: 1, title: 'How to create simple personal website', date: 'November 10, 2021', image: 'path/to/image.jpg' },
-//         // Add more posts here
-//     ];
-
-//     return (
-//         <div className="p-4">
-//             {posts.map((post) => (
-//                 <div key={post.id} className="mb-4 flex items-center">
-//                     <img src={post.image} alt={post.title} className="w-32 h-32 object-cover mr-4"/>
-//                     <div>
-//                         <h2 className="text-xl font-bold">{post.title}</h2>
-//                         <p>{post.date}</p>
-//                         <Link to={/post/${post.id}} className="text-red-500 underline">Full Story</Link>
-//                     </div>
-//                 </div>
-//             ))}
-//         </div>
-//     );
-// }
-
-// export default PostList;
