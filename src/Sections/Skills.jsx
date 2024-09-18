@@ -52,7 +52,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <div ref={ElementRef} className= {`w-full max-container py-4 pb-20 lg:pb-10 flex flex-col space-y-12 lg:flex-row lg:space-x-5 lg:space-y-0 justify-center relative  ${inView ? 'transition-active' : ''} `}>
+    <div ref={ElementRef} className= {`w-full max-container pt-4  lg:pb-10 flex flex-col space-y-12 lg:flex-row lg:space-x-5 lg:space-y-0 justify-center relative  ${inView ? 'transition-active' : ''} `}>
       <div className="w-full lg:w-1/2">
         <p className=" font-bold text-[20px] text-whit-color ">Our skills</p>
         <h3 className="font-bold text-[30px] mb-6 mt-3 text-whit-color">

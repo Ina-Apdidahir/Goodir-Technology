@@ -12,6 +12,7 @@ import Blog from '../Sections/Blog'
 import Clients from '../SECTIONS/Clients'
 import Contact from '../Sections/Contact'
 import Footer from '../SECTIONS/Footer'
+import Team from '../Sections/Team'
 
 
 const LandingPage = () => {
@@ -29,12 +30,20 @@ const LandingPage = () => {
                     className=" padding ">
                     < About />
                 </section>
-                <section className=" padding bg-coral-red bg-[radial-gradient(#ffffff33_1px,#ea4343_1px)] bg-[size:20px_20px] ">
+                <section className=" padding bg-coral-red ">
                     < Skills />
                 </section>
                 <section
                     id="Work"
-                    className=" padding ">
+                    className=" padding relative">
+                    <div
+                        className=" w-full h-[450px] absolute left-0 right-0 top-[-4rem] z-[-5] bg-coral-red "
+                    >
+                        <div
+                            className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"
+                        >
+                        </div>
+                    </div>
                     < Works />
                 </section>
                 <section
@@ -61,6 +70,9 @@ const LandingPage = () => {
                             </div>
                         </div>
                     </div>
+                </section>
+                <section className=" padding ">
+                    <Team />
                 </section>
                 <section
                     id="Blog"

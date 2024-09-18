@@ -9,14 +9,27 @@ import Landing from '../assets/PORT_images/Landing.jpg'
 const Works = () => {
   return (
     <div className=" relative w-full max-container flex justify-center lg:flex-row flex-wrap space-x-4 space-y-4">
-      <div className=" w-full py-5 absolute top-[-10rem] sm:top-[-12rem] flex flex-col items-center justify-center space-y-3">
+      <div className=" w-full py-5 sm:top-[-12rem] flex flex-col items-center justify-center space-y-3">
         <p className="text-whit-color font-bold text-[18px] ">Selected Works</p>
-        <h3 className="font-bold text-[30px] text-whit-color">Check my portfolio</h3>
-        <div className="flex space-x-4 flex-wrap sm:space-x-6">
-          <button className="border-0  text-[16px] sm:text-[18px] sm:font-bold ">All </button>
-          <button className="border-0  text-[16px] sm:text-[18px] sm:font-bold ">Blog web</button>
-          <button className="border-0  text-[16px] sm:text-[18px] sm:font-bold ">E-commerce web</button>
-          <button className="border-0  text-[16px] sm:text-[18px] sm:font-bold ">Landing web</button>
+        <h3 className="font-bold text-[16px] sm:text-[28px] text-whit-color">Showcasing Our Latest Achievements</h3>
+        <div className=" hidden lg:block lg:flex space-x-4 flex-wrap sm:space-x-6">
+          <button className="border-0  text-[16px] text-whit-color sm:text-[18px] sm:font-bold ">All </button>
+          <button className="border-0  text-[16px] text-whit-color sm:text-[18px] sm:font-bold ">Branding and Design</button>
+          <button className="border-0  text-[16px] text-whit-color sm:text-[18px] sm:font-bold ">System Development</button>
+          <button className="border-0  text-[16px] text-whit-color sm:text-[18px] sm:font-bold ">web Development</button>
+          <button className="border-0  text-[16px] text-whit-color sm:text-[18px] sm:font-bold ">Digital Marketting</button>
+        </div>
+        <div className='mt-12 lg:hidden '>
+          <select
+            className="mt-2 py-2 px-4 outline-none border border-gray-300 rounded-sm shadow-sm bg-white hover:border-gray-400  duration-200 ease-in-out"
+            name="" id="">
+            <option value="All">All</option>
+            <option value="Branding and Design">Branding and Design</option>
+            <option value="System Development">System Development</option>
+            <option value="web Development">Web Development</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+          </select>
+
         </div>
       </div>
 
