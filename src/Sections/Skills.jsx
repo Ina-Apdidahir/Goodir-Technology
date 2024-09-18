@@ -52,9 +52,12 @@ const Skills = () => {
   }, []);
 
   return (
-    <div ref={ElementRef} className= {`w-full max-container pt-4  lg:pb-10 flex flex-col space-y-12 lg:flex-row lg:space-x-5 lg:space-y-0 justify-center relative  ${inView ? 'transition-active' : ''} `}>
+    <div ref={ElementRef} className={`w-full max-container pt-4  lg:pb-10 flex flex-col space-y-12 lg:flex-row lg:space-x-5 lg:space-y-0 justify-center relative  ${inView ? 'transition-active' : ''} `}>
       <div className="w-full lg:w-1/2">
-        <p className=" font-bold text-[20px] text-whit-color ">Our skills</p>
+        <div className="flex space-x-0 items-baseline">
+          <div className=" w-20 h-1 bg-whit-color"></div>
+          <p className=" font-bold text-[20px] text-whit-color ">Our skills</p>
+        </div>
         <h3 className="font-bold text-[30px] mb-6 mt-3 text-whit-color">
           You Can Imagine We Can Do
         </h3>
@@ -69,9 +72,9 @@ const Skills = () => {
         <ProgressBar label="Branding And Design" percentage={99} />
         <ProgressBar label="App Development " percentage={80} />
       </div>
-         
+
       <div
-        className= {`hidden lg:block w-[250px] h-[350px] justify-center items-center bg-transparent border-4 border-color-[#f0f0f0] z-0 bottom-[-20rem] left-[-10rem] absolute transition-all duration-[5000ms] ${inView ?'translate-x-[4rem]' : ''}`}
+        className={`hidden lg:block w-[250px] h-[350px] justify-center items-center bg-transparent border-4 border-color-[#f0f0f0] z-0 bottom-[-20rem] left-[-10rem] absolute transition-all duration-[5000ms] ${inView ? 'translate-x-[4rem]' : ''}`}
       ></div>
     </div>
   );

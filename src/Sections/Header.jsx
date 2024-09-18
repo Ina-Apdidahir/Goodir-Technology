@@ -14,7 +14,7 @@ const Header = () => {
           <img className="w-24 lg:w-36" src={Logo} alt="Logo" />
         </a>
 
-        <ul className="flex flex-1 items-center justify-center gap-8 max-lg:hidden">
+        <ul className="flex flex-1 items-center justify-end gap-8 mr-10 max-lg:hidden">
           <li className="px-2 py-2">
             <a className="text-white hover:text-coral-red" href="#Home">Home</a>
           </li>

@@ -10,7 +10,10 @@ const Works = () => {
   return (
     <div className=" relative w-full max-container flex justify-center lg:flex-row flex-wrap space-x-4 space-y-4">
       <div className=" w-full py-5 sm:top-[-12rem] flex flex-col items-center justify-center space-y-3">
-        <p className="text-whit-color font-bold text-[18px] ">Selected Works</p>
+        <div className="flex space-x-0 items-baseline">
+          <div className=" w-20 h-1 bg-whit-color"></div>
+          <p className="text-whit-color font-bold text-[18px] ">Selected Works</p>
+        </div>
         <h3 className="font-bold text-[16px] sm:text-[28px] text-whit-color">Showcasing Our Latest Achievements</h3>
         <div className=" hidden lg:block lg:flex space-x-4 flex-wrap sm:space-x-6">
           <button className="border-0  text-[16px] text-whit-color sm:text-[18px] sm:font-bold ">All </button>

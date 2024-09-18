@@ -34,7 +34,10 @@ const Services = () => {
       <div className={`hidden lg:block w-1/4 h-1/6 bg-slate-900 absolute lg:bottom-[-8rem] lg:left-[-12rem]  transition-all duration-[5000ms] ${inView ? 'translate-y-[-3rem]' : ''}`}></div>
 
       <div className=" w-full lg:w-[46%] ">
-        <p className=" font-bold text-[20px] text-coral-red ">  What We Do </p>
+        <div className="flex space-x-0 items-baseline">
+          <div className=" w-20 h-1 bg-coral-red"></div>
+          <p className=" font-bold text-[20px] text-coral-red ">  What We Do </p>
+        </div>
         <h3 className="font-bold text-[30px] mb-6 mt-3 ">
           Our Services
         </h3>
@@ -44,7 +47,7 @@ const Services = () => {
       </div>
 
       <div
-        className= "transition-container w-full lg:w-[46%] px-5 py-7 rounded-lg bg-white-200 flex justify-center flex-col lg:flex-row lg:space-x-4 "
+        className="transition-container w-full lg:w-[46%] px-5 py-7 rounded-lg bg-white-200 flex justify-center flex-col lg:flex-row lg:space-x-4 "
       >
         <div className="w-[50px] pb-5 pt-2">
           <img src={service} alt="" className="w-full" />
@@ -61,7 +64,7 @@ const Services = () => {
       </div>
 
       <div
-        className= "transition-container w-full lg:w-[46%] px-5 py-7 rounded-lg bg-white-200 flex justify-center flex-col lg:flex-row lg:space-x-4 "
+        className="transition-container w-full lg:w-[46%] px-5 py-7 rounded-lg bg-white-200 flex justify-center flex-col lg:flex-row lg:space-x-4 "
       >
         <div className=" w-[50px] pb-5 pt-2 ">
           <img src={service} alt="" className=" w-full" />
@@ -78,7 +81,7 @@ const Services = () => {
       </div>
 
       <div
-        className= "transition-container w-full lg:w-[46%] px-5 py-7 rounded-lg bg-white-200 flex justify-center flex-col lg:flex-row lg:space-x-4 "
+        className="transition-container w-full lg:w-[46%] px-5 py-7 rounded-lg bg-white-200 flex justify-center flex-col lg:flex-row lg:space-x-4 "
       >
         <div className=" w-[50px] pb-5 pt-2 ">
           <img src={service} alt="" className=" w-full" />
@@ -95,7 +98,7 @@ const Services = () => {
       </div>
 
       <div
-        className= "transition-container w-full lg:w-[46%] px-5 py-7 rounded-lg bg-white-200 flex justify-center flex-col lg:flex-row lg:space-x-4 "
+        className="transition-container w-full lg:w-[46%] px-5 py-7 rounded-lg bg-white-200 flex justify-center flex-col lg:flex-row lg:space-x-4 "
       >
         <div className=" w-[50px] pb-5 pt-2 ">
           <img src={service} alt="" className=" w-full" />

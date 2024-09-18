@@ -47,7 +47,8 @@ const Footer = () => {
           <h1 className="font-bold text-[20px] uppercase ml-5">Goodir Technology</h1>
         </div>
 
-        <div className="w-full lg:w-[30%] flex mt-8 items-center justify-end space-x-4">
+        {/* Social Icons */}
+        <div className="w-full lg:w-[30%] flex mt-8 items-center justify-center sm:justify-end space-x-4">
           <h3 className=" text-whit-color font-bold text-[20px] ">Connect</h3>
           <div className="p-1 bg-whit-color rounded-full cursor-pointer ">
             <svg
@@ -67,27 +68,39 @@ const Footer = () => {
               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM12.0606 11.6829L5.64722 6.2377L4.35278 7.7623L12.0731 14.3171L19.6544 7.75616L18.3456 6.24384L12.0606 11.6829Z"></path>
             </svg>
           </div>
+          <div className="p-1 bg-whit-color rounded-full cursor-pointer ">
+            <svg
+              className=" w-4 text-coral-red "
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47062 14 5.5 16 5.5H17.5V2.1401C17.1743 2.09685 15.943 2 14.6429 2C11.9284 2 10 3.65686 10 6.69971V9.5H7V13.5H10V22H14V13.5Z"></path>
+            </svg>
+          </div>
+          <div className="p-1 bg-whit-color rounded-full cursor-pointer ">
+            <svg
+              className=" w-4 text-coral-red "
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94048 4.99993C6.94011 5.81424 6.44608 6.54702 5.69134 6.85273C4.9366 7.15845 4.07187 6.97605 3.5049 6.39155C2.93793 5.80704 2.78195 4.93715 3.1105 4.19207C3.43906 3.44699 4.18654 2.9755 5.00048 2.99993C6.08155 3.03238 6.94097 3.91837 6.94048 4.99993ZM7.00048 8.47993H3.00048V20.9999H7.00048V8.47993ZM13.3205 8.47993H9.34048V20.9999H13.2805V14.4299C13.2805 10.7699 18.0505 10.4299 18.0505 14.4299V20.9999H22.0005V13.0699C22.0005 6.89993 14.9405 7.12993 13.2805 10.1599L13.3205 8.47993Z"></path>
+            </svg>
+          </div>
         </div>
       </div>
 
       <div
         onClick={scrollToTop} // Add onClick event here
-        className={` lg:block h-16 w-9 lg:h-32 lg:w-14 bg-[#f0f0f0]  absolute top-[-12rem] right-[-7rem] lg:right-[-5rem] group transition-all  cursor-pointer duration-[5000ms] ${inView ? 'translate-x-[-6rem]' : ''}`}
+        className={` lg:block h-16 w-9 lg:h-32 lg:w-14 bg-coral-red  absolute top-[-10rem] lg:top-[-12rem] right-[-3rem] lg:right-[-5rem] group transition-all  cursor-pointer duration-[5000ms] ${inView ? 'translate-x-[-4rem] lg:translate-x-[-6rem]' : ''}`}
       >
-       <div className="w-full h-full flex flex-col justify-center items-center relative ">
-       <svg 
-        className=' opacity-0 w-8 text-coral-red absolute top-[40%] group-hover:opacity-[1] transition-all duration-[1000ms] group-hover:top-[30%]'
-        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 10.8284L7.0502 15.7782L5.63599 14.364L11.9999 8L18.3639 14.364L16.9497 15.7782L11.9999 10.8284Z"></path>
-        </svg>
-        <svg 
-        className=' w-8 text-coral-red '
-        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 10.8284L7.0502 15.7782L5.63599 14.364L11.9999 8L18.3639 14.364L16.9497 15.7782L11.9999 10.8284Z"></path>
-        </svg>
-       </div>
+        <div className="w-full h-full flex flex-col justify-center items-center relative ">
+          <svg
+            className=' opacity-0 w-8 text-whit-color absolute top-[40%] group-hover:opacity-[1] transition-all duration-[1000ms] group-hover:top-[40%] group-hover:lg:top-[30%] '
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 10.8284L7.0502 15.7782L5.63599 14.364L11.9999 8L18.3639 14.364L16.9497 15.7782L11.9999 10.8284Z"></path>
+          </svg>
+          <svg
+            className=' w-8 text-whit-color '
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 10.8284L7.0502 15.7782L5.63599 14.364L11.9999 8L18.3639 14.364L16.9497 15.7782L11.9999 10.8284Z"></path>
+          </svg>
+        </div>
       </div>
 
       <div className=" w-full flex justify-center ">
-        <p className="text-gray-300 text-[14px]">Designed and Developed by Bishar Abdidahir &copy; 2024</p>
+        <p className="text-gray-300 text-[14px] text-center ">Designed and Developed by Bishar Abdidahir &copy; 2024</p>
       </div>
     </div>
   )

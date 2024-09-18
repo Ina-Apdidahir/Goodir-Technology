@@ -2,14 +2,14 @@
 
 import Header from '../Sections/Header';
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import Ecommerce from '../assets/PORT_images/Ecommerce.jpg';
 import Landing from '../assets/PORT_images/Landing.jpg';
 
 const PostDetail = () => {
     const { id } = useParams(); // Get the post id from the URL
-    const navigate = useNavigate();
+
 
     const posts = [
         {
@@ -43,17 +43,6 @@ const PostDetail = () => {
             <Header />
 
             <div className="post-detail py-10 px-6 sm:px-10 lg:px-[20%] pt-[7rem] ">
-                <div
-                    onClick={() => navigate(-1)}
-                    className=" w-20 h-8 rounded-full cursor-pointer bg-coral-red flex justify-center items-center mb-6 border-2 border-coral-red group hover:bg-transparent transition-all duration-300 ease-in-out"
-                >
-                    <svg
-                        className=" w-6 text-whit-color group-hover:text-black transition-all duration-300  ease-in-out"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5.82843 6.99955L8.36396 9.53509L6.94975 10.9493L2 5.99955L6.94975 1.0498L8.36396 2.46402L5.82843 4.99955H13C17.4183 4.99955 21 8.58127 21 12.9996C21 17.4178 17.4183 20.9996 13 20.9996H4V18.9996H13C16.3137 18.9996 19 16.3133 19 12.9996C19 9.68584 16.3137 6.99955 13 6.99955H5.82843Z"></path>
-                    </svg>
-
-                </div>
-
                 <img src={post.image} alt={post.title} className="w-full h-64 sm:h-[300px] object-cover" />
                 <h1 className="text-3xl font-bold">{post.title}</h1>
                 <div className="flex justify-between items-center space-x-3 mb-3 ">

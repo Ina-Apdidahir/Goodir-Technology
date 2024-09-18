@@ -37,7 +37,10 @@ const About = () => {
       </div>
 
       <div className="w-full lg:w-[31%] lg:mx-4">
-        <p className="text-coral-red font-bold text-[18px]">About Us</p>
+        <div className="flex space-x-0 items-baseline">
+          <div className=" w-20 h-1 bg-coral-red"></div>
+          <p className="text-coral-red font-bold text-[18px]">About Us</p>
+        </div>
         <h3 className="font-bold text-[24px]">
           Elevate Your Digital Presence with <span className="text-coral-red">Goodir Technology</span>
         </h3>
@@ -63,7 +66,7 @@ const About = () => {
             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11.0026 16L6.75999 11.7574L8.17421 10.3431L11.0026 13.1716L16.6595 7.51472L18.0737 8.92893L11.0026 16Z"></path>
           </svg>
           <small className="text-gray-600">
-          Our team crafts customized strategies to elevate your brand and drive measurable success.
+            Our team crafts customized strategies to elevate your brand and drive measurable success.
           </small>
         </div>
         <button className="mt-8 border-2 border-coral-red bg-coral-red text-whit-color px-5 py-2 rounded-sm hover:text-black hover:bg-transparent group">
