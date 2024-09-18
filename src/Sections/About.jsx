@@ -28,7 +28,7 @@ const About = () => {
   return (
     <div ref={aboutRef} className={`lg:mt-16 mt-6 w-full max-container flex flex-col lg:flex-row justify-center ${inView ? 'transition-active' : ''}`}>
       <div className="hidden lg:block lg:w-[31%] relative group">
-        <div className={`h-3/4 w-3/4 bg-red-500 absolute top-[-1rem] right-[8rem] transition-all duration-[2000ms] ${inView ? 'translate-x-[10px] translate-y-4' : ''}`}></div>
+        <div className={`h-3/4 w-3/4 bg-coral-red absolute top-[-1rem] right-[8rem] transition-all duration-[2000ms] ${inView ? 'translate-x-[10px] translate-y-4' : ''}`}></div>
         <img
           className={`absolute top-[-7rem] right-[1rem] transition-all duration-[2000ms] ${inView ? 'translate-x-[-10px] translate-y-[-5px]' : ''}`}
           src={Image} width={300} alt=""
@@ -76,7 +76,7 @@ const About = () => {
       </div>
 
       <div className="hidden lg:block lg:w-[31%] relative group">
-        <div className={`h-3/4 w-3/4 bg-red-500 absolute bottom-[-1rem] left-[8rem] transition-all duration-[2000ms] ${inView ? 'translate-x-[10px] translate-y-4' : ''}`}></div>
+        <div className={`h-3/4 w-3/4 bg-coral-red absolute bottom-[-1rem] left-[8rem] transition-all duration-[2000ms] ${inView ? 'translate-x-[10px] translate-y-4' : ''}`}></div>
         <img
           className={`absolute bottom-[-7rem] right-[1rem] transition-all duration-[2000ms] ${inView ? 'translate-x-[-10px] translate-y-[-5px]' : ''}`}
           src={Image} width={300} alt=""

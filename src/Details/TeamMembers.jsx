@@ -123,7 +123,7 @@ const TeamSlider = ({ teamMembers }) => {
           <button
             key={index}
             className={`h-2 lg:h-3 rounded-full transition-all duration-300 ease-in-out ${
-              currentSlide === index ? "bg-coral-red w-10 lg:w-14 " : "bg-red-300 w-2 lg:w-5"
+              currentSlide === index ? "bg-coral-red w-10 lg:w-14 " : "bg-[rgba(133,13,51,0.35)] w-2 lg:w-5"
             }`}
             onClick={() => handleDotClick(index)}
           />

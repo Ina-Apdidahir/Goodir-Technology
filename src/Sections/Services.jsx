@@ -118,7 +118,7 @@ const Services = () => {
         <h3 className="font-bold text-[30px] mb-6 mt-3 ">
           Do You Want Something Different?
         </h3>
-        <a href='' className=' border-2 border-coral-red px-6 py-2 bg-coral-red text-whit-color group hover:bg-transparent hover:text-black transition-all duration-300 rounded-sm'>
+        <a href='#Contact' className=' border-2 border-coral-red px-6 py-2 bg-coral-red text-whit-color group hover:bg-transparent hover:text-black transition-all duration-300 rounded-sm'>
           Knock Me
           <svg
             className=" text-whit-color w-12 h-4 inline-block group-hover:text-black transition-all duration-300"
