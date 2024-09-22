@@ -1,10 +1,14 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import service from '../assets/PORT_images/service.png'
+import axios from 'axios'
+import { motion } from 'framer-motion';
+import { FadeLeft, FadeRight, FadeUp } from '../Utilty/Animation'
 
 const Services = () => {
 
   const [inView, setInView] = useState(false);
+  const [cardsData, setCardsData] = useState([]);
   const ElementRef = useRef(null);
 
   useEffect(() => {
@@ -27,6 +31,15 @@ const Services = () => {
   }, []);
 
 
+  useEffect(() => {
+    fetchCardsData();
+  }, []);
+
+  const fetchCardsData = async () => {
+    const response = await axios.get('http://localhost/Goodir_db/Services/read.php');
+    setCardsData(response.data);
+  };
+
   return (
     <div ref={ElementRef} className={`w-full max-container flex flex-col lg:space-x-6 space-y-4 lg:flex-row flex-wrap relative  ${inView ? 'transition-active' : ''}`}>
 
@@ -35,18 +48,61 @@ const Services = () => {
 
       <div className=" w-full lg:w-[46%] ">
         <div className="flex space-x-0 items-baseline">
-          <div className=" w-20 h-1 bg-coral-red"></div>
-          <p className=" font-bold text-[20px] text-coral-red ">  What We Do </p>
+          <motion.div
+            variants={FadeRight(1.3)}
+            initial='hidden'
+            whileInView={"visible"}
+            className=" w-20 h-1 bg-coral-red"></motion.div>
+          <motion.p
+            variants={FadeRight(0.9)}
+            initial='hidden'
+            whileInView={"visible"}
+            className=" font-bold text-[20px] text-coral-red ">  What We Do </motion.p>
         </div>
-        <h3 className="font-bold text-[30px] mb-6 mt-3 ">
+        <motion.h3
+          variants={FadeRight(0.8)}
+          initial='hidden'
+          whileInView={"visible"}
+          viewport={{ once: true }}
+          className="font-bold text-[30px] mb-6 mt-3 ">
           Our Services
-        </h3>
-        <p className=" text-[16px] ">
+        </motion.h3>
+
+        <motion.p
+          variants={FadeUp(0.5)}
+          initial='hidden'
+          whileInView={"visible"}
+          viewport={{ once: true }}
+          className=" text-[16px] ">
           We offer high quality products for competitive prices. Our main goal is customer satisfaction, which we obtain through market orientation of ongoing service and support.
-        </p>
+        </motion.p>
       </div>
 
-      <div
+      {cardsData && cardsData.length > 0 ? (
+        cardsData.map((item, index) => (
+          <motion.div
+            variants={ index % 2 === 0 ? FadeLeft(0.8) : FadeRight(0.8) }
+            initial='hidden'
+            whileInView={"visible"}
+            viewport={{ once: true }}
+            key={index}
+            className="transition-container w-full lg:w-[46%] px-5 py-7 rounded-lg bg-white-200 flex justify-center flex-col lg:flex-row lg:space-x-4"
+          >
+            <div className="w-[50px] pb-5 pt-2">
+              <img src={service} alt="" className="w-full" />
+            </div>
+            <div className="lg:w-[70%]">
+              <h3 className="font-bold text-[25px]">{item.service_title}</h3>
+              <p className="font-semibold text-[18px] text-gray-400">
+                {item.sub_title} <span className='text-red-700'>${item.starting_price}</span>
+              </p>
+              <small className="text-[15px] line-clamp-4 ">{item.long_text}</small>
+              <button className=' py-2 rounded-sm mt-3 hover:text-tertiary-Color ' >Learn More →</button>
+            </div>
+          </motion.div>
+        ))
+      ) : 'No card'}
+      {/* <div
         className="transition-container w-full lg:w-[46%] px-5 py-7 rounded-lg bg-white-200 flex justify-center flex-col lg:flex-row lg:space-x-4 "
       >
         <div className="w-[50px] pb-5 pt-2">
@@ -112,7 +168,7 @@ const Services = () => {
             In system development, we engineer custom solutions tailored to streamline your business processes. Our team designs and implements systems that automate tasks, enhance data management, and improve overall efficiency. From inventory management to CRM systems, we ensure that each solution is robust, scalable, and fully integrated with your existing infrastructure, providing a seamless operational experience.
           </small>
         </div>
-      </div>
+      </div> */}
 
       <div className=" w-full lg:w-[46%] flex flex-col justify-center items-center">
         <h3 className="font-bold text-[30px] mb-6 mt-3 ">

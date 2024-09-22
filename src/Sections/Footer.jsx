@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Logo from '../assets/PORT_images/Asset28.png'
+import { motion } from 'framer-motion';
+import { FadeLeft, FadeRight, FadeUp } from '../Utilty/Animation'
 
 const Footer = () => {
 
@@ -35,7 +37,13 @@ const Footer = () => {
 
 
   return (
-    <div ref={ElementRef} className={` w-full max-container flex flex-col space-y-14  relative  ${inView ? 'transition-active' : ''}`}>
+    <motion.div 
+    variants={FadeUp(0.8)}
+    initial='hidden'
+    whileInView={"visible"}
+    // viewport={{ once: true }}
+    ref={ElementRef}
+     className={` w-full max-container flex flex-col space-y-14  relative  ${inView ? 'transition-active' : ''}`}>
 
       <div className="w-full flex sm:justify-between sm:items-start flex-col sm:flex-row  space-y-7 ">
         <div className="relative w-full lg:w-[50%] flex items-center ">
@@ -102,7 +110,7 @@ const Footer = () => {
       <div className=" w-full flex justify-center ">
         <p className="text-gray-300 text-[14px] text-center ">Designed and Developed by Bishar Abdidahir &copy; 2024</p>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

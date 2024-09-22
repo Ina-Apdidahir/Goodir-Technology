@@ -1,49 +1,104 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion';
+import { FadeLeft, FadeRight, FadeUp } from '../Utilty/Animation'
+import axios from 'axios'
 
 const Resume = () => {
+
+  const [processData, setProcessData] = useState([]);
+
+  useEffect(() => {
+    fetchProcessData();
+  }, []);
+
+  const fetchProcessData = async () => {
+    const response = await axios.get('http://localhost/Goodir_db/Process/read.php');
+    setProcessData(response.data);
+  };
+
+
   return (
     <div className="w-full max-container flex flex-col items-center lg:items-start lg:space-y-0 lg:space-x-4">
       <div className="w-full lg:w-[80%] mb-4">
         <div className="flex space-x-0 items-baseline">
-          <div className=" w-20 h-1 bg-whit-color"></div>
-          <p className=" font-bold text-[20px] text-whit-color ">  Know More </p>
+          <motion.div
+            variants={FadeRight(1.3)}
+            initial='hidden'
+            whileInView={"visible"}
+            className=" w-20 h-1 bg-whit-color"></motion.div>
+          <motion.p
+            variants={FadeRight(0.9)}
+            initial='hidden'
+            whileInView={"visible"}
+            className=" font-bold text-[20px] text-whit-color ">  Know More </motion.p>
         </div>
-        <h3 className="font-bold text-[30px] mb-6 mt-3 text-whit-color ">
+        <motion.h3
+          variants={FadeRight(0.8)}
+          initial='hidden'
+          whileInView={"visible"}
+          viewport={{ once: true }}
+          className="font-bold text-[30px] mb-6 mt-3 text-whit-color ">
           How We Deliver Excellence
-        </h3>
-        <p className=" text-[16px]  text-gray-100">
+        </motion.h3>
+
+        <motion.p
+          variants={FadeUp(0.5)}
+          initial='hidden'
+          whileInView={"visible"}
+          viewport={{ once: true }}
+          className=" text-[16px]  text-gray-100">
           Our Proven Process for Success. At Goodir Technology, we follow a clear and effective process to ensure that every project meets your goals and exceeds expectations.
-        </p>
+        </motion.p>
       </div>
 
       <div className="w-full lg:w-full flex flex-col lg:justify-between lg:space-x-4 mr-2 ">
 
         <div className=" w-full mt-[5rem]  lg:mt-4 flex flex-col items-start space-y-4">
           <div className="flex space-x-0 items-baseline">
-            <div className=" w-20 h-1 bg-whit-color"></div>
-            <h3 className=' text-[30px] font-bold text-whit-color '>Our Process</h3>
+            <motion.div
+              variants={FadeRight(1.3)}
+              initial='hidden'
+              whileInView={"visible"}
+              className=" w-20 h-1 bg-whit-color">
+            </motion.div>
+            <motion.h3
+              variants={FadeRight(0.9)}
+              initial='hidden'
+              whileInView={"visible"}
+              className=' text-[30px] font-bold text-whit-color '>Our Process</motion.h3>
           </div>
           <div className=" flex  flex-wrap space-y-4">
 
-            <div className="w-full lg:w-[45%] flex flex-col lg:flex-row lg:space-x-3 my-4 ">
-              <div className=" w-10 h-10 p-2 mx-2 my-4 lg:my-0 rounded-full bg-whit-color flex justify-center items-center">
-                <svg
-                  className=" w-8 text-tertiary-Color "
-                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9 1V3H15V1H17V3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H7V1H9ZM20 11H4V19H20V11ZM7 5H4V9H20V5H17V7H15V5H9V7H7V5Z"></path>
-                </svg>
-              </div>
-              <div className="">
-                <div className="flex flex-col lg:space-y-1 mb-3 ">
-                  <h3 className=" text-[22px] font-bold text-whit-color ">Make An Appointment </h3>
-                  <span className=" text-[14px] text-gray-300 ">Any Time</span>
-                </div>
-                <small className="text-[16px] text-gray-200">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit accusantium nihil eius, dolorem dignissimos veritatis inventore nam dolor corrupti maxime adipisci facilis commodi omnis ea? Incidunt magni aliquam mollitia. Unde.
-                </small>
-              </div>
-            </div>
+            {processData && processData.length > 0 && (
+              processData.map((process, index) => (
+                <motion.div
+                  variants={index % 2 === 0 ? FadeRight(0.8) : FadeLeft(0.8)}
+                  initial='hidden'
+                  whileInView={"visible"}
+                  viewport={{ once: true }}
+                  key={index}
+                  className="w-full lg:w-[45%] flex flex-col lg:flex-row lg:space-x-3 my-4 ">
+                  <div className=" w-10 h-10 p-2 mx-2 my-4 lg:my-0 rounded-full bg-whit-color flex justify-center items-center">
+                    <svg
+                      className=" w-8 text-tertiary-Color "
+                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4H4V2H20V4H18V6C18 7.61543 17.1838 8.91468 16.1561 9.97667C15.4532 10.703 14.598 11.372 13.7309 12C14.598 12.628 15.4532 13.297 16.1561 14.0233C17.1838 15.0853 18 16.3846 18 18V20H20V22H4V20H6V18C6 16.3846 6.81616 15.0853 7.8439 14.0233C8.54682 13.297 9.40202 12.628 10.2691 12C9.40202 11.372 8.54682 10.703 7.8439 9.97667C6.81616 8.91468 6 7.61543 6 6V4ZM8 4V6C8 6.68514 8.26026 7.33499 8.77131 8H15.2287C15.7397 7.33499 16 6.68514 16 6V4H8ZM12 13.2219C10.9548 13.9602 10.008 14.663 9.2811 15.4142C9.09008 15.6116 8.92007 15.8064 8.77131 16H15.2287C15.0799 15.8064 14.9099 15.6116 14.7189 15.4142C13.992 14.663 13.0452 13.9602 12 13.2219Z"></path>
+                    </svg>
+                  </div>
+                  <div className="">
+                    <div className="flex flex-col lg:space-y-1 mb-3 ">
+                      <h3 className=" text-[22px] font-bold text-whit-color ">{process.title} </h3>
+                      <span className=" text-[14px] text-gray-300 ">{process.sub_title}</span>
+                    </div>
+                    <small className="text-[16px] text-gray-200">
+                      {process.description}
+                    </small>
+                  </div>
+                </motion.div>
+              ))
+            )}
 
-            <div className="w-full lg:w-[45%] flex flex-col lg:flex-row lg:space-x-3 my-4 ">
+
+            {/* <div className="w-full lg:w-[45%] flex flex-col lg:flex-row lg:space-x-3 my-4 ">
               <div className=" w-10 h-10 p-2 mx-2 my-4 lg:my-0 rounded-full bg-whit-color flex justify-center items-center">
                 <svg
                   className=" w-8 text-tertiary-Color "
@@ -95,7 +150,7 @@ const Resume = () => {
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit accusantium nihil eius, dolorem dignissimos veritatis inventore nam dolor corrupti maxime adipisci facilis commodi omnis ea? Incidunt magni aliquam mollitia. Unde.
                 </small>
               </div>
-            </div>
+            </div> */}
 
           </div>
         </div>

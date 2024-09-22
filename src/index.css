@@ -75,7 +75,7 @@ body{
     padding: 20px;
     background-color: #f0f0f0;
     border-radius: 10px;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
     overflow: hidden; /* Hide overflow for corner effects */
   }
   
@@ -134,5 +134,13 @@ body{
   .cd-words-wrapper b.is-hidden {
     opacity: 0;
   }
+  
+  .line-clamp-4 {
+    @apply overflow-hidden overflow-ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+
   
 }

@@ -1,6 +1,7 @@
 
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { FadeLeft, FadeRight, FadeUp } from '../Utilty/Animation'
 
 import Ecommerce from '../assets/PORT_images/Ecommerce.jpg'
 import Landing from '../assets/PORT_images/Landing.jpg'
@@ -34,13 +35,32 @@ const Blog = () => {
     <div className="w-full max-container flex flex-col lg:space-x-6 space-y-4 lg:flex-row flex-wrap relative ">
       <div className=" w-full py-5  flex flex-col justify-center space-y-3">
         <div className="flex space-x-0 items-baseline">
-          <div className=" w-20 h-1 bg-coral-red"></div>
-          <p className=" font-bold text-[18px] text-coral-red ">Blogs</p>
+          <motion.div
+            variants={FadeRight(1.3)}
+            initial='hidden'
+            whileInView={"visible"}
+            className=" w-20 h-1 bg-coral-red">
+          </motion.div>
+          <motion.p
+            variants={FadeRight(0.9)}
+            initial='hidden'
+            whileInView={"visible"}
+            className=" font-bold text-[18px] text-coral-red ">Blogs</motion.p>
         </div>
-        <h3 className="font-bold text-[30px] ">Latest Updates</h3>
-        <small className="font-semibold text-[16px] text-gray-400 ">
+        <motion.h3
+          variants={FadeRight(0.8)}
+          initial='hidden'
+          whileInView={"visible"}
+          viewport={{ once: true }}
+          className="font-bold text-[30px] ">Latest Updates</motion.h3>
+        <motion.small
+          variants={FadeUp(0.6)}
+          initial='hidden'
+          whileInView={"visible"}
+          viewport={{ once: true }}
+          className="font-semibold text-[16px] text-gray-400 ">
           Welcome to Goodir Technology’s Blog, where we share insights, updates, and tips to help you stay ahead in the digital landscape. Check out our latest posts for valuable information.
-        </small>
+        </motion.small>
       </div>
 
       <PostSlider posts={posts} />
