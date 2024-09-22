@@ -58,6 +58,7 @@ const Header = () => {
           {navItems.map((item, index) => (
             <li className="relative px-2 py-2 group" key={index}>
               <a
+                onClick={() => setShowNav((prev) => !prev)}
                 className={`${activeSection === item.href.slice(1) ? 'text-gray-400' : 'text-white'
                   } hover:text-gray-400`}
                 href={item.href}
@@ -89,6 +90,7 @@ const Header = () => {
               {navItems.map((item, index) => (
                 <li className="relative px-2 py-2 group" key={index}>
                   <a
+                    onClick={() => setShowNav((prev) => !prev)}
                     className={`${activeSection === item.href.slice(1) ? 'text-gray-400' : 'text-white'
                       } hover:text-gray-400`}
                     href={item.href}
