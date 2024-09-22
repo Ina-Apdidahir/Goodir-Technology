@@ -1,5 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { FadeLeft, FadeRight, FadeUp, FadeDown } from '../Utilty/Animation'
 
 import Logo from '../assets/PORT_images/Asset23.png';
 import Menu from '../assets/PORT_images/menu.svg';
@@ -50,13 +52,18 @@ const Header = () => {
   return (
     <header className="px-3 py-2 sm:py-4 bg-coral-red  z-10 w-full fixed">
       <nav className="flex justify-between items-center max-container ">
-        <a href="" className="flex items-center space-x-2 h-full ">
+        <a
+          href="" className="flex items-center space-x-2 h-full ">
           <img className="w-24 lg:w-36" src={Logo} alt="Logo" />
         </a>
 
         <ul className="flex flex-1 items-center justify-end gap-8 mr-10 max-lg:hidden">
           {navItems.map((item, index) => (
-            <li className="relative px-2 py-2 group" key={index}>
+            <motion.li
+              variants={FadeLeft(1.3)}
+              initial='hidden'
+              whileInView={"visible"}
+              className="relative px-2 py-2 group" key={index}>
               <a
                 className={`${activeSection === item.href.slice(1) ? 'text-gray-400' : 'text-white'
                   } hover:text-gray-400`}
@@ -66,7 +73,7 @@ const Header = () => {
               </a>
               {/* Animated line */}
               <span className="absolute left-0 bottom-0 w-[1%] h-[1px] bg-white opacity-0 group-hover:w-full group-hover:opacity-100 transition-all duration-300 ease-in-out"></span>
-            </li>
+            </motion.li>
           ))}
         </ul>
 
@@ -80,24 +87,29 @@ const Header = () => {
 
         {/* Mobile Menu with Transition */}
         <div
-          className={`fixed top-0 left-0 w-full h-screen bg-[rgba(133,13,51,0.7)] backdrop-blur-sm z-20 transition-all duration-500 transform ${showNav ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+          className={`fixed top-0 left-0 w-full h-screen bg-[rgba(133,13,51,0.7)] backdrop-blur-sm z-20 transition-all duration-[700ms] transform ${showNav ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
             }`}
         >
           <div className="max-container pt-12 flex flex-col max-h-screen overflow-y-auto">
 
             <ul className="p-4 pt-[4rem] flex flex-col items-center justify-center gap-4 lg:hidden overflow-y-auto max-h-[calc(100vh-24px)]">
               {navItems.map((item, index) => (
-                <li className="relative px-2 py-2 group" key={index}>
+                <motion.li
+                  variants={FadeDown(0.3)}
+                  initial='hidden'
+                  whileInView={"visible"}
+                  className="relative px-2 py-2 group" key={index}>
                   <a
                     className={`${activeSection === item.href.slice(1) ? 'text-gray-400' : 'text-white'
                       } hover:text-gray-400`}
                     href={item.href}
+                    onClick={() => setShowNav((prev) => !prev)}
                   >
                     {item.name}
                   </a>
                   {/* Animated line */}
                   <span className="absolute left-0 bottom-0 w-[1%] h-[1px] bg-white opacity-0 group-hover:w-full group-hover:opacity-100 transition-all duration-300 ease-in-out"></span>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>

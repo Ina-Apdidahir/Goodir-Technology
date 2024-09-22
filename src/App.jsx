@@ -5,7 +5,7 @@ import PostDetails from './Details/PostDetail';
 
 function App() {
   return (
-    <BrowserRouter basename="/Goodir-Technology">
+    <BrowserRouter basename="/Goodir-Tech">
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/post/:id" element={<PostDetails />} />

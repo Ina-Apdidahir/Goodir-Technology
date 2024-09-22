@@ -1,24 +1,45 @@
 
 import { useState, useEffect, useRef } from "react";
+import axios from 'axios';
 
-const TeamSlider = ({ teamMembers }) => {
+const TeamSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const [teamData, setTeamData] = useState([]);
+
+  // useEffect(() => {
+  //   fetchteamData();
+  //   // Auto slide every 5 seconds
+  //   const interval = setInterval(() => {
+  //     handleNextSlide();
+  //   }, 5000);
+
+  //   return () => clearInterval(interval); // Clear interval on component unmount
+  // }, [currentSlide]);
 
   useEffect(() => {
-    // Auto slide every 5 seconds
-    const interval = setInterval(() => {
-      handleNextSlide();
-    }, 5000);
+    if (teamData.length > 0) {
+      const interval = setInterval(() => {
+        handleNextSlide();
+      }, 5000);
+      return () => clearInterval(interval);
+    }
+  }, [teamData , currentSlide]);
 
-    return () => clearInterval(interval); // Clear interval on component unmount
-  }, [currentSlide]);
+  useEffect(() => {
+      fetchteamData();
+  }, []);
+
+  const fetchteamData = async () => {
+    const response = await axios.get('http://localhost/Goodir_db/Team/read.php');
+    setTeamData(response.data);
+  };
 
   const handleNextSlide = () => {
     const totalVisibleSlides = getTotalVisibleSlides();
-    const totalSlides = Math.ceil(teamMembers.length / totalVisibleSlides);
+    const totalSlides = Math.ceil(teamData.length / totalVisibleSlides);
     const nextSlide = (currentSlide + 1) % totalSlides;
     setCurrentSlide(nextSlide);
     if (sliderRef.current) {
@@ -32,7 +53,7 @@ const TeamSlider = ({ teamMembers }) => {
 
   const handlePrevSlide = () => {
     const totalVisibleSlides = getTotalVisibleSlides();
-    const totalSlides = Math.ceil(teamMembers.length / totalVisibleSlides);
+    const totalSlides = Math.ceil(teamData.length / totalVisibleSlides);
     const prevSlide = (currentSlide - 1 + totalSlides) % totalSlides;
     setCurrentSlide(prevSlide);
     if (sliderRef.current) {
@@ -88,48 +109,51 @@ const TeamSlider = ({ teamMembers }) => {
   };
 
   return (
-    <div className="relative w-full mt-9">
-      <div
-        className="flex w-full overflow-hidden space-x-4 sm:space-x-10  "
-        ref={sliderRef}
-        style={{ WebkitOverflowScrolling: 'touch' }}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
-        {teamMembers.map((member, index) => (
+    <>
+      {teamData && teamData.length > 0 && (
+        <div className="relative w-full mt-9">
           <div
-            key={index}
-            className={`flex-shrink-0 w-[95%] sm:w-[45%] lg:w-[30%] 
-                 ${index === teamMembers.length - 1 ? 'mr-10' : ''}`} // Add margin to the last item
+            className="flex w-full overflow-hidden space-x-4 sm:space-x-10  "
+            ref={sliderRef}
+            style={{ WebkitOverflowScrolling: 'touch' }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
-            <div className="rounded-sm overflow-hidden pb-4">
-              <img className="w-full" src={member.image} alt={member.name} />
-              <div className="flex mt-3 flex-col justify-center items-center">
-                <h3 className="font-semibold text-[15px] sm:text-[18px]">
-                  {member.name}
-                </h3>
-                <p className="text-[13px] text-gray-600 text-center">
-                  {member.role}
-                </p>
+            {teamData.map((member, index) => (
+              <div
+                key={index}
+                className={`flex-shrink-0 w-[95%] sm:w-[45%] lg:w-[30%] 
+                 ${index === teamData.length - 1 ? 'mr-10' : ''}`} // Add margin to the last item
+              >
+                <div className="rounded-sm overflow-hidden pb-4">
+                  {member.image && <img className="w-full" src={`http://localhost/Goodir_db/uploads/${member.image}`} alt={member.name} />}
+                  <div className="flex mt-3 flex-col justify-center items-center">
+                    <h3 className="font-semibold text-[15px] sm:text-[18px]">
+                      {member.name}
+                    </h3>
+                    <p className="text-[13px] text-gray-600 text-center">
+                      {member.skills}
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
-      </div>
-      {/* Dot Indicators */}
-      <div className="flex justify-center mt-4 space-x-2">
-        {Array.from({ length: Math.ceil(teamMembers.length / getTotalVisibleSlides()) }).map((_, index) => (
-          <button
-            key={index}
-            className={`h-2 lg:h-3 rounded-full transition-all duration-300 ease-in-out ${
-              currentSlide === index ? "bg-coral-red w-10 lg:w-14 " : "bg-[rgba(133,13,51,0.35)] w-2 lg:w-5"
-            }`}
-            onClick={() => handleDotClick(index)}
-          />
-        ))}
-      </div>
-    </div>
+          {/* Dot Indicators */}
+          <div className="flex justify-center mt-4 space-x-2">
+            {Array.from({ length: Math.ceil(teamData.length / getTotalVisibleSlides()) }).map((_, index) => (
+              <button
+                key={index}
+                className={`h-2 lg:h-3 rounded-full transition-all duration-300 ease-in-out ${currentSlide === index ? "bg-coral-red w-10 lg:w-14 " : "bg-[rgba(133,13,51,0.35)] w-2 lg:w-5"
+                  }`}
+                onClick={() => handleDotClick(index)}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
